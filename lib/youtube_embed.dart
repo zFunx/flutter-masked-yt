@@ -20,7 +20,7 @@ class _YTEmbedState extends State<YTEmbed> {
     _controller = YoutubePlayerController.fromVideoId(
       videoId: videoId,
       autoPlay: false,
-      params: const YoutubePlayerParams(showFullscreenButton: true),
+      params: const YoutubePlayerParams(showFullscreenButton: true,),
     );
   }
 
@@ -32,17 +32,12 @@ class _YTEmbedState extends State<YTEmbed> {
 
   @override
   Widget build(BuildContext context) {
-    return YoutubePlayerScaffold(
-      controller: _controller,
-      aspectRatio: 16 / 9,
-      builder: (context, player) {
-        return Column(
-          children: [
-            player,
-            const Text('Youtube Player'),
-          ],
-        );
-      },
+    return SizedBox(
+      width: 300,
+      child: YoutubePlayer(
+        controller: _controller,
+        aspectRatio: 16 / 9,
+      ),
     );
   }
 }
