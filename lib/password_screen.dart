@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/youtube_embed.dart';
 
 class PasswordScreen extends StatefulWidget {
   const PasswordScreen({super.key});
@@ -14,10 +15,10 @@ class _PasswordScreenState extends State<PasswordScreen> {
 
   void _checkPassword() {
     if (_passwordController.text == _correctPassword) {
-      // Navigator.push(
-      //   context,
-      //   MaterialPageRoute(builder: (_) => const HiddenVideoScreen()),
-      // );
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => const YTEmbed()),
+      );
     } else {
       setState(() {
         _errorMessage = 'Incorrect password. Please try again.';
